@@ -1,0 +1,198 @@
+---
+
+# Setup/install tasks.
+- name: Ensure Memcached is installed.
+  package:
+    name: "{{ memcached_package }}"
+    state: present
+
+
+- name: Ensure Memcached is configured.
+  template:
+    src: memcached.conf.j2
+    dest: "{{ memcached_conf_path }}"
+    mode: 0644
+  notify: restart memcached
+
+- name: Ensure memcached is running and enabled on boot.
+  service: "name={{ memcached_daemon }} state=started enabled=yes"
+
+- name: Memcache2 configuration file
+  template:
+    src: memcached2.conf.j2
+    dest: "{{ memcached2_conf_path }}"
+    mode: 0644
+  notify: restart memcached2
+  when: memcached2_enabled is defined and memcached2_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached2
+  template:
+    src: memcached2.service.j2
+    dest: /etc/systemd/system/memcached2.service
+    mode: 0644
+  when: memcached2_enabled is defined and memcached2_enabled == "yes"
+
+- name: Ensure memcached2 is running and enabled on boot.
+  service: "name={{ memcached2_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached2_enabled is defined and memcached2_enabled == "yes"
+
+- name: Memcache3 configuration file
+  template:
+    src: memcached3.conf.j2
+    dest: "{{ memcached3_conf_path }}"
+    mode: 0644
+  notify: restart memcached3
+  when: memcached3_enabled is defined and memcached3_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached3
+  template:
+    src: memcached3.service.j2
+    dest: /etc/systemd/system/memcached3.service
+    mode: 0644
+  when: memcached3_enabled is defined and memcached3_enabled == "yes"
+
+- name: Ensure memcached3 is running and enabled on boot.
+  service: "name={{ memcached3_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached3_enabled is defined and memcached3_enabled == "yes"
+
+- name: Memcache4 configuration file
+  template:
+    src: memcached4.conf.j2
+    dest: "{{ memcached4_conf_path }}"
+    mode: 0644
+  notify: restart memcached4
+  when: memcached4_enabled is defined and memcached4_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached4
+  template:
+    src: memcached4.service.j2
+    dest: /etc/systemd/system/memcached4.service
+    mode: 0644
+  when: memcached4_enabled is defined and memcached4_enabled == "yes"
+
+- name: Ensure memcached4 is running and enabled on boot.
+  service: "name={{ memcached4_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached4_enabled is defined and memcached4_enabled == "yes"
+
+- name: Memcache5 configuration file
+  template:
+    src: memcached5.conf.j2
+    dest: "{{ memcached5_conf_path }}"
+    mode: 0644
+  notify: restart memcached5
+  when: memcached5_enabled is defined and memcached5_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached5
+  template:
+    src: memcached5.service.j2
+    dest: /etc/systemd/system/memcached5.service
+    mode: 0644
+  when: memcached5_enabled is defined and memcached5_enabled == "yes"
+
+- name: Ensure memcached5 is running and enabled on boot.
+  service: "name={{ memcached5_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached5_enabled is defined and memcached5_enabled == "yes"
+
+- name: Memcache6 configuration file
+  template:
+    src: memcached6.conf.j2
+    dest: "{{ memcached6_conf_path }}"
+    mode: 0644
+  notify: restart memcached6
+  when: memcached6_enabled is defined and memcached6_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached6
+  template:
+    src: memcached6.service.j2
+    dest: /etc/systemd/system/memcached6.service
+    mode: 0644
+  when: memcached6_enabled is defined and memcached6_enabled == "yes"
+
+- name: Ensure memcached6 is running and enabled on boot.
+  service: "name={{ memcached6_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached6_enabled is defined and memcached6_enabled == "yes"
+
+- name: Memcache7 configuration file
+  template:
+    src: memcached7.conf.j2
+    dest: "{{ memcached7_conf_path }}"
+    mode: 0644
+  notify: restart memcached7
+  when: memcached7_enabled is defined and memcached7_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached7
+  template:
+    src: memcached7.service.j2
+    dest: /etc/systemd/system/memcached7.service
+    mode: 0644
+  when: memcached7_enabled is defined and memcached7_enabled == "yes"
+
+- name: Ensure memcached7 is running and enabled on boot.
+  service: "name={{ memcached7_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached7_enabled is defined and memcached7_enabled == "yes"
+
+- name: Memcache8 configuration file
+  template:
+    src: memcached8.conf.j2
+    dest: "{{ memcached8_conf_path }}"
+    mode: 0644
+  notify: restart memcached8
+  when: memcached8_enabled is defined and memcached8_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached8
+  template:
+    src: memcached8.service.j2
+    dest: /etc/systemd/system/memcached8.service
+    mode: 0644
+  when: memcached8_enabled is defined and memcached8_enabled == "yes"
+
+- name: Ensure memcached8 is running and enabled on boot.
+  service: "name={{ memcached8_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached8_enabled is defined and memcached8_enabled == "yes"
+
+- name: Memcache9 configuration file
+  template:
+    src: memcached9.conf.j2
+    dest: "{{ memcached9_conf_path }}"
+    mode: 0644
+  notify: restart memcached9
+  when: memcached9_enabled is defined and memcached9_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached9
+  template:
+    src: memcached9.service.j2
+    dest: /etc/systemd/system/memcached9.service
+    mode: 0644
+  when: memcached9_enabled is defined and memcached9_enabled == "yes"
+
+- name: Ensure memcached9 is running and enabled on boot.
+  service: "name={{ memcached9_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached9_enabled is defined and memcached9_enabled == "yes"
+
+- name: Memcache10 configuration file
+  template:
+    src: memcached10.conf.j2
+    dest: "{{ memcached10_conf_path }}"
+    mode: 0644
+  notify: restart memcached10
+  when: memcached10_enabled is defined and memcached10_enabled == "yes"
+
+
+- name: Create systemd unit file for memcached10
+  template:
+    src: memcached10.service.j2
+    dest: /etc/systemd/system/memcached10.service
+    mode: 0644
+  when: memcached10_enabled is defined and memcached10_enabled == "yes"
+
+- name: Ensure memcached10 is running and enabled on boot.
+  service: "name={{ memcached10_daemon }} state=started enabled=yes daemon_reload=yes"
+  when: memcached10_enabled is defined and memcached10_enabled == "yes"

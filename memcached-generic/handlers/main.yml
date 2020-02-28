@@ -1,0 +1,30 @@
+---
+- name: restart memcached
+  service: "name={{ memcached_daemon }} state=restarted"
+
+- name: restart memcached2
+  service: "name={{ memcached2_daemon }} state=restarted"
+
+- name: restart memcached3
+  service: "name={{ memcached3_daemon }} state=restarted"
+
+- name: restart memcached4
+  service: "name={{ memcached4_daemon }} state=restarted"
+
+- name: restart memcached5
+  service: "name={{ memcached5_daemon }} state=restarted"
+
+- name: restart memcached6
+  service: "name={{ memcached6_daemon }} state=restarted"
+
+- name: restart memcached7
+  service: "name={{ memcached7_daemon }} state=restarted"
+
+- name: restart memcached8
+  service: "name={{ memcached8_daemon }} state=restarted"
+
+- name: restart memcached9
+  service: "name={{ memcached9_daemon }} state=restarted"
+
+- name: restart memcached10
+  service: "name={{ memcached10_daemon }} state=restarted"

@@ -1,0 +1,51 @@
+Port 22
+ListenAddress {{ inventory_hostname }}
+Protocol 2
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+SyslogFacility AUTHPRIV
+LogLevel INFO
+AllowTcpForwarding no
+LoginGraceTime 30s
+PermitRootLogin yes
+StrictModes yes
+MaxAuthTries 10
+MaxSessions 10
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+IgnoreUserKnownHosts yes
+IgnoreRhosts yes
+UsePrivilegeSeparation yes
+PermitEmptyPasswords no
+PasswordAuthentication yes
+ChallengeResponseAuthentication no
+KerberosOrLocalPasswd no
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials no
+UsePAM yes
+AllowAgentForwarding no
+GatewayPorts no
+X11Forwarding no
+X11UseLocalhost yes
+TCPKeepAlive no
+PermitUserEnvironment no
+ClientAliveInterval 600
+ClientAliveCountMax 3
+MaxStartups 10:30:100
+PermitTunnel no
+KexAlgorithms diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1
+Banner /etc/issue.net
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+Subsystem	sftp	/usr/libexec/openssh/sftp-server
+
+{% if output.stdout != '' -%}
+AllowGroups {{ output.stdout }}
+{%- endif %}

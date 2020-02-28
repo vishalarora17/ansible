@@ -1,0 +1,62 @@
+---
+
+- name: kafka installation
+  yum:
+    name: "kafka-{{ version }}.{{ arch }}"
+    state: present
+
+
+- name: Creates Symbolink for kafka default directory
+  file:
+    src: "{{ kafka_home }}"
+    dest: "/opt/kafka"
+    state: link
+
+- name: change ownership of kafka directory
+  file:
+    path: "{{ kafka_home }}"
+    owner: app
+    group: app
+    recurse: yes
+
+- name: Update server.properties configuration
+  template:
+    src: server-properties.j2
+    dest: "{{ kafka_home }}/config/server.properties"
+    backup: yes
+
+- name: Creates kafka log directory
+  file:
+    path: "/var/log/kafka"
+    mode: 0755
+    owner: app
+    group: app
+    state: directory
+
+- name: Creating zookeeper service
+  template:
+   src=zookeeper-service.j2
+   dest="{{ service_location }}/zookeeper.service"
+   mode=0644
+   owner=root
+   group=root
+
+- name: enable service zookeeper and daemon reload
+  systemd:
+    name: "zookeeper.service"
+    enabled: yes
+    daemon_reload: yes
+
+- name: Creating kafka service
+  template:
+   src=kafka-service.j2
+   dest="{{ service_location }}/kafka.service"
+   mode=0644
+   owner=root
+   group=root
+
+- name: enable service kafka and daemon reload
+  systemd:
+    name: "kafka.service"
+    enabled: yes
+    daemon_reload: yes

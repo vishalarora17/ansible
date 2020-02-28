@@ -1,0 +1,40 @@
+---
+memcached_package: memcached
+memcached_daemon: memcached
+memcached_conf_path: /etc/sysconfig/memcached
+
+memcached2_package: memcached2
+memcached2_daemon: memcached2
+memcached2_conf_path: /etc/sysconfig/memcached2
+
+memcached3_package: memcached3
+memcached3_daemon: memcached3
+memcached3_conf_path: /etc/sysconfig/memcached3
+
+memcached4_package: memcached4
+memcached4_daemon: memcached4
+memcached4_conf_path: /etc/sysconfig/memcached4
+
+memcached5_package: memcached5
+memcached5_daemon: memcached5
+memcached5_conf_path: /etc/sysconfig/memcached5
+
+memcached6_package: memcached6
+memcached6_daemon: memcached6
+memcached6_conf_path: /etc/sysconfig/memcached6
+
+memcached7_package: memcached7
+memcached7_daemon: memcached7
+memcached7_conf_path: /etc/sysconfig/memcached7
+
+memcached8_package: memcached8
+memcached8_daemon: memcached8
+memcached8_conf_path: /etc/sysconfig/memcached8
+
+memcached9_package: memcached9
+memcached9_daemon: memcached9
+memcached9_conf_path: /etc/sysconfig/memcached9
+
+memcached10_package: memcached10
+memcached10_daemon: memcached10
+memcached10_conf_path: /etc/sysconfig/memcached10

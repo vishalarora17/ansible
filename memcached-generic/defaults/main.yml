@@ -1,0 +1,6 @@
+---
+
+memcached_port: 11211
+memcached2_port: 11212
+memcached3_port: 11213
+memcached4_port: 11214

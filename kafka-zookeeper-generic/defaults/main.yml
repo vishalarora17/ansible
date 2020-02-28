@@ -1,0 +1,7 @@
+---
+
+
+version: 2.1.0-1
+arch: x86_64
+service_location: "/etc/systemd/system"
+kafka_home: "/opt/kafka-{{ version }}"
